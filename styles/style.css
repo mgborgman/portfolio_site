@@ -1,0 +1,259 @@
+
+html {
+	font-family: Helvetica Arial, sans-serif;
+}
+body {
+	font-size: 120%;
+}
+#about,
+#projects,
+#contact,
+.skills {
+/*	max-width: 1280px;
+	margin: 0 auto;*/
+}
+header {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+	grid-area: header;
+	width: 100%;
+	background: -webkit-gradient(
+							linear,
+							left top, left bottom,
+							from(rgba(0, 0, 0, 0.7)),
+							to(rgba(0, 0, 0, 0.7))),
+							url("../images/desk.jpeg") no-repeat;
+	background: linear-gradient(
+							rgba(0, 0, 0, 0.7),
+							rgba(0, 0, 0, 0.7)),
+							url("../images/desk.jpeg") no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	justify-items: center;
+	-ms-flex-line-pack: center;
+	    align-content: center;
+	text-align: center;
+}
+
+header h1 {
+	font-size: 2.5em;
+}
+
+header nav {
+/*	justify-self: center;
+	align-self: end;*/
+	padding: 60px 0 0 0;
+}
+
+header nav ul li {
+	display: inline-block;
+}
+
+header nav ul li a {
+	text-decoration: none;
+	color: springgreen;
+	border: 2px solid springgreen;
+	padding: 5px;
+}
+
+.projects,
+.contact,
+.social,
+.skills,
+footer {
+	padding: 1em;
+}
+
+.projects h2,
+.contact h2,
+.social h2,
+.skills h2,
+footer h2 {
+	padding: 1em 0 1em 0;
+}
+
+
+.about-me-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-row: 2;
+	-ms-grid-column: 1;
+	grid-area: about-me;
+	-ms-grid-columns: (minmax(300px, 1fr))[3];
+	    grid-template-columns: repeat(3, auto);
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: start;
+}
+
+.about-me-container section {
+	font-size: 1em;
+	padding: 10px 20px 0 20px;
+	text-align: justify;
+	line-height: 1.5;
+}
+
+.projects {
+	/*display: grid;*/
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
+	grid-area: projects;
+}
+
+.projects-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(320px, 1fr))[auto-fill];
+	    grid-template-columns: repeat(3, auto);
+	grid-gap: 20px;
+}
+
+.projects-container img {
+	width: 100%;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+.contact-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-row: 4;
+	-ms-grid-column: 1;
+	grid-area: contact;
+	-ms-grid-columns: (auto)[2];
+	    grid-template-columns: repeat(2, auto);
+}
+
+.contact {
+
+}
+
+.skills {
+	grid-area: skills;
+}
+
+.skills dt {
+	width: 20%;
+	font-weight: bold;
+	float: left;
+	clear: both;
+}
+
+.skills dd {
+	width: 80%;
+	float: right;
+	padding: 0 0 10px 0;
+}
+
+footer {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-row: 5;
+	-ms-grid-column: 1;
+	grid-area: footer;
+	-ms-grid-columns: (auto)[3];
+	    grid-template-columns: repeat(3, auto);
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+footer h2 {
+	color: #fff;
+}
+
+footer a {
+	color: springgreen;
+	text-decoration: none;
+}
+
+/*.contact,
+.social,
+footer {
+	display: none;
+}*/
+
+figure img {
+	max-width: 100%;
+}
+
+.container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-rows: 100vh auto auto auto auto;
+	    grid-template-rows: 100vh auto auto auto auto auto;
+	    grid-template-areas: "header"
+						 "about-me"
+						 "projects"
+						 "contact"
+						 "skills"
+						 "footer";
+}
+
+@media (max-width: 1017px) {
+	.about-me-container {
+		-ms-grid-columns: (minmax(300px, 1fr))[2];
+		    grid-template-columns: repeat(2, minmax(300px, 1fr));
+		-webkit-box-align: start;
+		    -ms-flex-align: start;
+		        align-items: start;
+		    grid-template-areas: "image1 article"
+							 	 "image2 article";
+	}
+
+	.about-me-container section {
+		display: -ms-grid;
+		display: grid;
+		-ms-grid-row: 1;
+		-ms-grid-row-span: 2;
+		-ms-grid-column: 2;
+		grid-area: article;
+		padding: 0 20px;
+		line-height: 1.5;
+	}
+
+	.about-me-container.image1 {
+		-ms-grid-row: 1;
+		-ms-grid-column: 1;
+		grid-area: image1;
+	}
+
+	.about-me-container.image2 {
+		-ms-grid-row: 2;
+		-ms-grid-column: 1;
+		grid-area: image2;
+	}
+
+	.projects-container {
+		grid-template-columns: repeat(2, auto)
+	}
+}
+
+@media (max-width: 680px) {
+	html {
+		font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+	}
+	.about-me-container {
+		-ms-grid-columns: 1fr;
+		    grid-template-columns: 1fr;
+		    grid-template-areas: "image1"
+							 "article"
+							 "image2";
+	}
+
+	.about-me-container section {
+		display: -ms-grid;
+		display: grid;
+		-ms-grid-row: 2;
+		-ms-grid-column: 1;
+		grid-area: article;
+	}
+
+	.projects-container {
+		grid-template-columns: auto;
+	}
+}
+
