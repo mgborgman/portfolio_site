@@ -5,8 +5,23 @@
     $stmt2 = $db->query("SELECT name FROM todos WHERE list_id = " . $_GET['id']);
     try {
         echo '<h1>' . $list_name['name'] . '</h1>';
+    ?>
+    <form method="POST" action="edit-list.php">
+        <input type="hidden" name="list_id" value="<?php echo $_GET['id']?>"/>
+        <input type="hidden" name="list_name" value="<?php echo $list_name['name']?>"/>
+        <input type="submit" name="edit" value="Edit List"/>
+    </form>
+    <!-- <a href="edit-list.php?id=<?php echo $_GET['id'] ?>">Edit List</a> -->
+<?php
         foreach($stmt2->fetchAll() as $row) {
             echo '<h2>' . $row['name'] . '</h2>';
+?>
+            <form method="POST" action="delete-todo.php">
+                <input type="hidden" name="list_id" value="<?php echo $_GET['id']?>"/>
+                <input type="hidden" name="todo_name" value="<?php echo $row['name']?>">
+                <input type="submit" name="delete" value="Delete"/>
+            </form>
+<?php            
         }
     } catch(PDOExecption $e) {
         echo $e->getMessage();
