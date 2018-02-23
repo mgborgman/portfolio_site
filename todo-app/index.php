@@ -4,7 +4,7 @@
     </title>
     <body>
         <h1>Todo Tracker</h1>
-        <a href="new-list.php" >New list</a>
+        <a href="new-list.html" >New list</a>
     </body>
     <?php
         include 'config.php';

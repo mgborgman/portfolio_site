@@ -24,29 +24,14 @@
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
-    <form method="POST" action="">
+    <form method="POST" action="add-todo.php">
         <label for="todo_name">Enter a new todo item:</label>
         <input type="text" name="todo_name" id="todo_name"/>
+        <input type="hidden" name="list_id" value=<?php echo $_GET['id'] ?>>
         <input type="submit" name="submit" value="Add"/>
     </form>
 
     <a href="index.php">Home</a>
 
 </body>
-<?php
-    $list_id = $_GET['id'];
-    $todo_name = $_POST['todo_name'];
-    $sql = $db->prepare("INSERT INTO todos (list_id, name) VALUES (:list_id, :todo_name)");
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(empty($todo_name)){
-            echo 'Todo must not be blank.';
-        } else {
-            $sql->execute(array(
-                "list_id" => $list_id,
-                "todo_name" => $todo_name
-            ));
-            header('Location: list.php?id=' . $list_id );
-        }
-    }
-?>
 </html>
