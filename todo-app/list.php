@@ -6,7 +6,7 @@
     try {
         echo '<h1>' . $list_name['name'] . '</h1>';
     ?>
-    <form method="POST" action="edit-list.php">
+    <form method="POST" action="<?php echo 'edit-list.php?id=' . $_GET['id']?>">
         <input type="hidden" name="list_id" value="<?php echo $_GET['id']?>"/>
         <input type="hidden" name="list_name" value="<?php echo $list_name['name']?>"/>
         <input type="submit" name="edit" value="Edit List"/>
