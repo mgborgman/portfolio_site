@@ -10,7 +10,11 @@
     $stmt->bindParam(2, $list_id, PDO::PARAM_INT);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $stmt->execute();
-        header('Location: list.php?id=' . $list_id);
+        if (empty($new_list_name)) {
+            echo "List name must not be blank.";
+        } else {
+            $stmt->execute();
+            header('Location: list.php?id=' . $list_id);
+        }
     }
 ?>
